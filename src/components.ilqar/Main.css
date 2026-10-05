@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+
+.know-more {
+  --km-bg: #f3f3f3;
+  --km-card-bg: #ffffff;
+  --km-step-bg: #d9d9d9;
+  --km-text: #000000;
+  --km-orange: #fc8a06;
+  --km-orange-soft: #ff9f2e;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 73px 68px 71px 81px;
+  background-color: var(--km-bg);
+  border-radius: 12px;
+  font-family: "Poppins", sans-serif;
+  color: var(--km-text);
+}
+
+.know-more *,
+.know-more *::before,
+.know-more *::after {
+  box-sizing: border-box;
+}
+
+.know-more {
+  margin-bottom: 40px;
+}
+
+.know-more ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.know-more h2,
+.know-more h3,
+.know-more p {
+  margin: 0;
+}
+
+.know-more button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.know-more button:focus-visible {
+  outline: 2px solid var(--km-orange);
+  outline-offset: 2px;
+}
+
+
+.know-more__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 38px;
+  padding: 0 5px;
+}
+
+.know-more__title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  white-space: nowrap;
+  
+}
+
+.know-more__tabs {
+  display: flex;
+  align-items: center;
+}
+
+.know-more__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 13.5px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.know-more__tab--active {
+  padding: 0 20px;
+  border-color: var(--km-orange-soft);
+  font-weight: 600;
+}
+
+
+.know-more__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 39px;
+  min-height: 328px;
+  margin-top: 40px;
+  padding: 48px 18px 28px 45px;
+  background-color: var(--km-card-bg);
+  border-radius: 10px;
+}
+
+
+.know-more__questions {
+  flex: 0 0 232px;
+  width: 232px;
+}
+
+.know-more__question {
+  display: block;
+  width: 100%;
+  padding: 11px 0;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  font-weight: 900;
+
+}
+
+.know-more__questions-item {
+  font-weight: 900;
+}
+.Frequent-questions {
+  font-weight: 900;
+  color: #fc8a06;
+}
+
+.know-more .know-more__question--active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 216px;
+  min-height: 39px;
+  margin-bottom: 10px;
+  padding: 0 16px;
+  border-radius: 999px; 
+  background-color: var(--km-orange);
+  font-weight: 900;
+}
+
+
+.know-more__panel {
+  flex: 0 0 471px;
+  width: 471px;
+  margin-top: 6px;
+  margin-left: 60px;
+}
+
+.know-more__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 178px;
+  padding: 22px 12px 16px;
+  background-color: var(--km-step-bg);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.step-card__title {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.step-card__media {
+  flex: 0 0 80px;
+  width: 90px;
+  height: 80px;
+  margin: 9px 0 3px;
+}
+
+.step-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.step-card__text {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+
+.know-more__description {
+  max-width: 392px;
+  margin: 20px auto 0;
+  font-size: 9.5px;
+  font-weight: 400;
+  line-height: 15.5px;
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 100px;
+  
+}
+
+
+@media (max-width: 960px) {
+  .know-more {
+    padding: 48px 24px;
+  }
+
+  .know-more__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .know-more__tabs {
+    flex-wrap: wrap;
+    margin-left: -13px;
+  }
+
+  .know-more__card {
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 24px;
+  }
+
+  .know-more__questions {
+    flex: none;
+    width: 100%;
+  }
+
+  .know-more__panel {
+    flex: none;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .know-more__steps {
+    grid-template-columns: 1fr;
+  }
+}
