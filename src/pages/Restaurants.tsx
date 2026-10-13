@@ -1,9 +1,25 @@
 
+import Group23 from '../companents/Group23';
+import Products from '../companents/Products';
+
+
+
+
 function Restaurants() {
   return (
+  
     <div>
-      <h1>Restaurants</h1>
-      <p>Restoranlar səhifəsi</p>
+      <Group23/>
+      <Products/>
+      
+  
+
+
+
+
+
+      
+
     </div>
   );
 }
