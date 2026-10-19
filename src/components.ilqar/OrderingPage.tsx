@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./OrderingPage.css";
 
-// Doğru import yolu (eyni qovluqdadırlar)
 import { products as mockProducts, type Product } from "./Products";
 import DeliveryModal from "../components.ilqar/Deliverymodal";
 
@@ -35,7 +34,7 @@ const ICONS = {
   reviewClock: "/icons/review-clock.svg",
   plus: "/icons/plus.svg",
 };
-// 
+
 const categories = [
   "Pizzas",
   "Garlic Bread",
@@ -278,7 +277,6 @@ export default function OrderingPage() {
             </div>
           </aside>
 
-          {/* Middle: Products from Mock Data */}
           <main>
             <div className="menu-head" style={{ position: "relative" }}>
               <h2 className="menu-title">Products</h2>
@@ -330,7 +328,6 @@ export default function OrderingPage() {
             ))}
           </main>
 
-          {/* Right: basket */}
           <aside>
             <div className="open-box">
               <img className="icon-38" src={Clockk} alt="" />
@@ -409,7 +406,6 @@ export default function OrderingPage() {
           </aside>
         </div>
 
-        {/* ---------- Delivery / contact / operational times ---------- */}
         <section className="info-card">
           <div className="info-left">
             <div>
@@ -461,7 +457,6 @@ export default function OrderingPage() {
           </div>
         </section>
 
-        {/* ---------- Map ---------- */}
         <section className="map-card">
           <img className="map-img" src={Rectangle52} alt="Map" />
           <div className="map-info">
@@ -480,7 +475,6 @@ export default function OrderingPage() {
         </section>
       </div>
 
-      {/* ---------- Customer reviews ---------- */}
       <section className="reviews">
         <div className="container">
           <div className="reviews-head">
@@ -526,7 +520,6 @@ export default function OrderingPage() {
         </div>
       </section>
 
-      {/* ---------- Similar restaurants ---------- */}
       <div className="container">
         <h2 className="similar-title">Similar Restaurants</h2>
         <div className="similar-grid">
