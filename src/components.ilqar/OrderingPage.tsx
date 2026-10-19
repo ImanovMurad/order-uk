@@ -35,7 +35,7 @@ const ICONS = {
   reviewClock: "/icons/review-clock.svg",
   plus: "/icons/plus.svg",
 };
-
+// 
 const categories = [
   "Pizzas",
   "Garlic Bread",
