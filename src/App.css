@@ -258,8 +258,6 @@ height: 550px;
 background-color: #FBFBFB;
 }
 
-
-
 .hero-orange-bg {
   position: absolute;
   width: 500px;
@@ -321,16 +319,11 @@ background-color: #FBFBFB;
 .search-box input {
   width: 130px;
   height: 100%;
-
   padding: 0 16px;
-
   border: none;
   outline: none;
-
   font-size: 9px;
-
   color: #333;
-
   background: transparent;
 }
 
@@ -545,4 +538,403 @@ background-color: #FBFBFB;
 }
 
 
+
+.restaurant-page {
+  width: 100%;
+  padding: 15px 14px 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #05091f;
+}
+
+
+.restaurant-banner {
+  position: relative;
+  width: 100%;
+  height: 307px;
+  background: #f1f0ee;
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(255, 255, 255, 0.82) 48%,
+      rgba(255, 255, 255, 0.25) 100%
+    ),
+    url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80")
+      center / cover;
+  opacity: 0.85;
+}
+
+/* Restoran məlumatları */
+.restaurant-info {
+  position: relative;
+  z-index: 2;
+  margin-left: 36px;
+  margin-top: 36px;
+  max-width: 540px;
+}
+
+.restaurant-title {
+  font-size: 14px;
+  margin: 0 0 9px;
+  color: #05091f;
+}
+
+.restaurant-info h1 {
+  font-size: 35px;
+  font-weight: 750;
+  line-height: 1.2;
+  margin: 0 0 21px;
+  letter-spacing: -0.8px;
+}
+
+.restaurant-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.detail-badge {
+  height: 40px;
+  padding: 0 19px;
+  background: #05091f;
+  color: white;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.detail-icon {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.opening-status {
+  position: absolute;
+  top: 161px;
+  left: -36px;
+  width: 215px;
+  height: 40px;
+  background: #ff8900;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 0 7px 7px 0;
+}
+
+/* Burger şəkli */
+.restaurant-image {
+  position: absolute;
+  right: 40px;
+  top: 36px;
+  width: 39%;
+  height: 232px;
+  border-radius: 9px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.restaurant-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Reytinq */
+.rating-card {
+  position: absolute;
+  z-index: 3;
+  left: 54%;
+  bottom: 32px;
+  width: 87px;
+  height: 102px;
+  background: #fff;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.rating-number {
+  font-size: 44px;
+  line-height: 1;
+  color: #292929;
+  font-weight: 400;
+}
+
+.rating-stars {
+  color: #ffb900;
+  font-size: 17px;
+  letter-spacing: -2px;
+  margin-top: 5px;
+}
+
+.rating-reviews {
+  font-size: 10px;
+  color: #777;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+
+.offers-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 40px 10px 36px;
+}
+
+.offers-section h2 {
+  font-size: 21px;
+  font-weight: 750;
+  color: #080808;
+  margin: 0;
+}
+
+.menu-search {
+  width: 222px;
+  height: 42px;
+  border: 1px solid #252941;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.search-icon {
+  font-size: 23px;
+  color: #666;
+  transform: rotate(-30deg);
+}
+
+.menu-search input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 12px;
+  color: #252941;
+}
+
+.menu-search input::placeholder {
+  color: #777989;
+  font-weight: 600;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.products-page {
+  width: 100%;
+  padding: 0 20px 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+}
+
+
+.category-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid #eee;
+}
+
+.category-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.category-button {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  padding: 7px 12px;
+  border-radius: 20px;
+  color: #222;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.category-button:hover {
+  background: #f1f1f1;
+}
+
+.category-button.active {
+  background: #080b20;
+  color: #fff;
+}
+
+
+.products-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0 15px;
+}
+
+.products-heading h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 750;
+}
+
+.products-heading span {
+  font-size: 12px;
+  color: #777;
+}
+
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.product-card {
+  min-width: 0;
+  min-height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.13);
+  border: 1px solid #f0f0f0;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+}
+
+.product-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-info h3 {
+  margin: 2px 0 7px;
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.product-info p {
+  margin: 0 0 8px;
+  color: #666;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.product-info strong {
+  margin-top: auto;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+
+.product-image {
+  width: 90px;
+  min-width: 75px;
+  position: relative;
+  align-self: stretch;
+}
+
+.product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 85px;
+  max-height: 110px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.add-button {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #080b20;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background: #ff8900;
+}
+
+.empty-message {
+  color: #777;
+  padding: 20px 0;
+}
+
+.product-section {
+  margin-top: 24px;
+}
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 750;
+  color: #111;
+}
+
+
+.product-section:nth-of-type(3) .section-title,
+.product-section:nth-of-type(4) .section-title {
+  color: #ff8900;
+}
 
