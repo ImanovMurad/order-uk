@@ -1,0 +1,254 @@
+.order-footer {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.stats-bar {
+  display: flex;
+  max-width: 1080px;
+  margin: 0 auto 30px;
+  background: #f5821f;
+  border-radius: 16px;
+  padding: 32px 20px;
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-value {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footer-content {
+  background: #eaeaea;
+  padding: 40px 20px;
+}
+
+.footer-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr 1fr;
+  gap: 30px;
+}
+
+.footer-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+
+.bran-logo {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1;
+  color: #1a1a1a;
+  margin-bottom: 18px;
+}
+
+
+.branl-badge {
+  width: 26px;
+  height: 40px;
+  background: #a7a7a7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-badge-text {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #1a1a1a;
+  white-space: nowrap;
+  transform: rotate(-90deg);
+}
+
+.store-icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.store-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #000;
+  border-radius: 8px;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.store-badge-icon {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+}
+
+.store-badge-icon--mono {
+  filter: brightness(0) invert(1);
+}
+
+.store-badge-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.store-badge-line1 {
+  font-size: 8.5px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.store-badge-line2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.company-info {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.subscribe-form {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.subscribe-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: #dcdcdc;
+  padding: 0 16px;
+  height: 46px;
+  font-size: 14px;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+  font-family: inherit;
+}
+
+.subscribe-input::placeholder {
+  color: #8a8a8a;
+}
+
+.subscribe-btn {
+  border: none;
+  background: #f5821f;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0 26px;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+}
+
+.privacy-note {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.privacy-note a {
+  color: #666;
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-slot {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.icon-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: #1a1a1a;
+  text-decoration: underline;
+}
+
+.footer-bottom-bar {
+  background: #14171f;
+  padding: 18px 20px;
+}
+
+.footer-bottom-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.copyright {
+  font-size: 13px;
+  color: #d8d8d8;
+}
+
+.bottom-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.bottom-links a {
+  font-size: 13px;
+  color: #d8d8d8;
+  text-decoration: none;
+}
+
+.bottom-links a:hover {
+  color: #fff;
+}
+
