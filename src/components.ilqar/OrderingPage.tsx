@@ -1,72 +1,41 @@
+import { useState, useEffect } from "react";
 import "./OrderingPage.css";
-import Rectangle44 from "../assets.ilqar/Rectangle 44.svg"
-import Order from "../assets.ilqar/Order Completed.svg"
-import Motocross from "../assets.ilqar/Motocross.svg"
-import Clock from "../assets.ilqar/Clock.svg"
-import Search from "../assets.ilqar/Search More.svg"
-import RestaurantMenu from "../assets.ilqar/Restaurant Menu.svg"
-import ForwardButton from "../assets.ilqar/Forward Button.svg"
-import Clockk from "../assets.ilqar/Clock (1).svg"
-import FullShoppingBasket from "../assets.ilqar/Full Shopping Basket.svg"
-import Rectangle46 from "../assets.ilqar/Rectangle 46.svg"
-import Remove from "../assets.ilqar/Remove.svg"
-import Remsmiling from "../assets.ilqar/smiling-woman-looking-smartphone-screen-260nw-2473271405.jpg"
-import ForwardButtonn from "../assets.ilqar/Forward Button (1).svg"
-import DeliveryScooter from "../assets.ilqar/Delivery Scooter.svg"
-import NewStore from "../assets.ilqar/New Store.svg"
-import Checkout from "../assets.ilqar/Rectangle 83.svg"
-import Tracking from "../assets.ilqar/Tracking.svg"
-import IDVerified from "../assets.ilqar/ID Verified.svg"
-import Rectangle52 from "../assets.ilqar/Rectangle 52.svg"
-import Sol from "../assets.ilqar/sol.svg"
-import Sag from "../assets.ilqar/sag.svg"
-import Ellipse3 from "../assets.ilqar/Ellipse 3.svg"
-import Mcdonalds from "../assets.ilqar/Rectangle 13.svg"
-import { useState } from "react";
 
+// Doğru import yolu (eyni qovluqdadırlar)
+import { products as mockProducts, type Product } from "./Products";
+import DeliveryModal from "../components.ilqar/Deliverymodal";
 
-
-const IMAGES = {
-  hero: "/images/hero-girl.png", // girl + yellow background (483 x 302)
-  pizzaFarmHouse: "/images/pizza-farm-house.png", // round, 158 x 158
-  pizzaDeluxe: "/images/pizza-deluxe.png", // round, 158 x 158
-  pizzaTandoori: "/images/pizza-tandoori.png", // round, 158 x 158
-  promo: "/images/first-order-discount.jpg", // woman with phone (304 x 269)
-  map: "/images/map.png", // map screenshot (1272 x 551)
-  avatar: "/images/avatar.png", // review avatar, round, 44 x 44
-  logoMcDonalds: "/images/logos/mcdonalds.png",
-  logoPapaJohns: "/images/logos/papa-johns.png",
-  logoKfc: "/images/logos/kfc.png",
-  logoTexas: "/images/logos/texas-chicken.png",
-  logoBurgerKing: "/images/logos/burger-king.png",
-  logoShaurma: "/images/logos/shaurma-1.png",
-};
+import Rectangle44 from "../assets.ilqar/Rectangle 44.svg";
+import Order from "../assets.ilqar/Order Completed.svg";
+import Motocross from "../assets.ilqar/Motocross.svg";
+import Clock from "../assets.ilqar/Clock.svg";
+import Search from "../assets.ilqar/Search More.svg";
+import RestaurantMenu from "../assets.ilqar/Restaurant Menu.svg";
+import ForwardButton from "../assets.ilqar/Forward Button.svg";
+import Clockk from "../assets.ilqar/Clock (1).svg";
+import FullShoppingBasket from "../assets.ilqar/Full Shopping Basket.svg";
+import Rectangle46 from "../assets.ilqar/Rectangle 46.svg";
+import Remove from "../assets.ilqar/Remove.svg";
+import Remsmiling from "../assets.ilqar/smiling-woman-looking-smartphone-screen-260nw-2473271405.jpg";
+import ForwardButtonn from "../assets.ilqar/Forward Button (1).svg";
+import DeliveryScooter from "../assets.ilqar/Delivery Scooter.svg";
+import NewStore from "../assets.ilqar/New Store.svg";
+import Checkout from "../assets.ilqar/Rectangle 83.svg";
+import Tracking from "../assets.ilqar/Tracking.svg";
+import IDVerified from "../assets.ilqar/ID Verified.svg";
+import Rectangle52 from "../assets.ilqar/Rectangle 52.svg";
+import Sol from "../assets.ilqar/sol.svg";
+import Sag from "../assets.ilqar/sag.svg";
+import Ellipse3 from "../assets.ilqar/Ellipse 3.svg";
+import Mcdonalds from "../assets.ilqar/Rectangle 13.svg";
 
 const ICONS = {
-  minOrder: "/icons/min-order.svg",
-  bike: "/icons/bike.svg",
-  clock: "/icons/clock.svg",
-  reviewClock: "/icons/review-clock.svg",
-  search: "/icons/search.svg",
-  menu: "/icons/menu.svg",
-  basket: "/icons/basket.svg",
   chili: "/icons/chili.svg",
   leaf: "/icons/leaf.svg",
-  trash: "/icons/trash.svg",
-  arrowDown: "/icons/arrow-down.svg",
-  arrowRight: "/icons/arrow-right.svg",
-  delivery: "/icons/delivery.svg",
-  collection: "/icons/collection.svg",
+  reviewClock: "/icons/review-clock.svg",
   plus: "/icons/plus.svg",
-  deliveryInfo: "/icons/delivery-info.svg",
-  contactInfo: "/icons/contact-info.svg",
-  chevronLeft: "/icons/chevron-left.svg",
-  chevronRight: "/icons/chevron-right.svg",
 };
 
-/* ------------------------------------------------------------------
-   DATA
-------------------------------------------------------------------- */
 const categories = [
   "Pizzas",
   "Garlic Bread",
@@ -74,33 +43,20 @@ const categories = [
   "Kebabas",
   "Salads",
   "Cold drinks",
-  "Happy Meal®",
+  "Happy Meal®️",
   "Desserts",
   "Hot drinks",
   "Sauces",
-  "Orbit®",
+  "Orbit®️",
 ];
 
 const PIZZA_DESC =
-  "1 McChicken™, 1 Big Mac™, 1 Royal\nCheeseburger, 3 medium sized French Fries ,\n3 cold drinks";
-
-const pizzas = [
-  { name: "Farm House Xtreme Pizza", image: IMAGES.pizzaFarmHouse, vegetarian: false },
-  { name: "Deluxe Pizza", image: IMAGES.pizzaDeluxe, vegetarian: true },
-  { name: "Tandoori Pizza", image: IMAGES.pizzaTandoori, vegetarian: true },
-];
-
-const sizes = [
-  { label: "Small", price: "£21.90" },
-  { label: "Medium", price: "£25.90" },
-  { label: "Large", price: "£27.90" },
-];
+  "1 McChicken™️, 1 Big Mac™️, 1 Royal\nCheeseburger, 3 medium sized French Fries ,\n3 cold drinks";
 
 const basketItems = [
   { qty: "1x", price: "£27.90", name: '12" Vegitarian Pizza', desc: "No Mushrooms + green peppers" },
   { qty: "1x", price: "£17.90", name: '17" Tandoori Pizza', desc: "No Mushrooms + green peppers" },
   { qty: "2x", price: "£4.90", name: "Coke Coca Cola", desc: "" },
-  { qty: "1x", price: "£27.90", name: '12" Vegitarian Pizza', desc: "No Mushrooms + green peppers" },
 ];
 
 const deliveryHours: [string, string][] = [
@@ -135,14 +91,13 @@ const reviews = [1, 2, 3].map((id) => ({
 }));
 
 const similarRestaurants = [
-  { name: "McDonald’s London", logo: IMAGES.logoMcDonalds, bg: "#da291c" },
-  { name: "Papa Johns", logo: IMAGES.logoPapaJohns, bg: "#0b6a35" },
-  { name: "KFC West London", logo: IMAGES.logoKfc, bg: "#e8272d" },
-  { name: "Texas Chicken", logo: IMAGES.logoTexas, bg: "#ffffff" },
-  { name: "Burger King", logo: IMAGES.logoBurgerKing, bg: "#f5a340" },
-  { name: "Shaurma 1", logo: IMAGES.logoShaurma, bg: "#ffffff" },
+  { name: "McDonald’s London", logo: Mcdonalds, bg: "#da291c" },
+  { name: "Papa Johns", logo: Mcdonalds, bg: "#0b6a35" },
+  { name: "KFC West London", logo: Mcdonalds, bg: "#e8272d" },
+  { name: "Texas Chicken", logo: Mcdonalds, bg: "#ffffff" },
+  { name: "Burger King", logo: Mcdonalds, bg: "#f5a340" },
+  { name: "Shaurma 1", logo: Mcdonalds, bg: "#ffffff" },
 ];
-
 
 const RatingStars = () => (
   <div className="rating-stars">
@@ -152,14 +107,102 @@ const RatingStars = () => (
   </div>
 );
 
+export default function OrderingPage() {
+  const [activeCategory, setActiveCategory] = useState("Pizzas");
+  const [productList, setProductList] = useState<Product[]>(mockProducts);
+  
+  const [apiData, setApiData] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-const RestaurantPage = () => {
-const [activeCategory, setActiveCategory] = useState("Pizzas");
+  const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
+  const [sortOrder, setSortOrder] = useState<string>("default");
+
+  // Delivery / postcode modal
+  const [isDeliveryModalOpen, setIsDeliveryModalOpen] = useState<boolean>(false);
+  const [orderMode, setOrderMode] = useState<"delivery" | "collection">("delivery");
+  const [deliveryPostcode, setDeliveryPostcode] = useState<string | null>(null);
+
+  const handleCategoryClick = (cat: string) => {
+    setActiveCategory(cat);
+    if (cat === "Pizzas") {
+      setIsDeliveryModalOpen(true);
+    }
+  };
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Məlumatı əldə etmək mümkün olmadı!');
+        }
+        return response.json();
+      })
+      .then((json) => {
+        setApiData(json);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  const handleSort = (order: string) => {
+    setSortOrder(order);
+    setIsSortOpen(false);
+
+    let sorted = [...productList];
+    if (order === "asc") {
+      sorted.sort((a, b) => a.price - b.price);
+    } else if (order === "desc") {
+      sorted.sort((a, b) => b.price - a.price);
+    } else if (order === "name") {
+      sorted.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    setProductList(sorted);
+  };
+
+  if (loading) {
+    return (
+      <div style={{ textAlign: "center", padding: "100px", fontSize: "20px", fontWeight: "600" }}>
+        Məlumatlar yüklənir, zəhmət olmasa gözləyin...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div style={{ textAlign: "center", padding: "100px", color: "red", fontSize: "18px", fontWeight: "600" }}>
+        Xəta baş verdi: {error}
+      </div>
+    );
+  }
 
   return (
     <div className="restaurant-page">
+      <DeliveryModal
+        open={isDeliveryModalOpen}
+        onClose={() => setIsDeliveryModalOpen(false)}
+        onDelivery={(postcode) => {
+          setOrderMode("delivery");
+          setDeliveryPostcode(postcode);
+        }}
+        onCollect={() => {
+          setOrderMode("collection");
+          setDeliveryPostcode(null);
+        }}
+      />
+
       <div className="container">
-        {/* ---------- Hero ---------- */}
+
+        {apiData && (
+          <div style={{ background: "#f8f9fa", padding: "15px 20px", marginBottom: "20px", borderRadius: "8px", border: "1px solid #ddd" }}>
+            <h4 style={{ margin: "0 0 8px 0", color: "#0b873e" }}>API-dən Gələn Test Məlumatı (JSONPlaceholder):</h4>
+            <p style={{ margin: 0, fontSize: "14px" }}><strong>Başlıq:</strong> {apiData.title}</p>
+          </div>
+        )}
+
         <section className="hero">
           <div className="hero-text">
             <p className="hero-tagline">Desi Flavours with a blend of Italian aesthetics!</p>
@@ -192,7 +235,6 @@ const [activeCategory, setActiveCategory] = useState("Pizzas");
           </div>
         </section>
 
-        {/* ---------- Order heading + search ---------- */}
         <div className="order-header">
           <h2 className="order-title">Order from Tandoori Pizza London</h2>
           <label className="search-box">
@@ -201,9 +243,7 @@ const [activeCategory, setActiveCategory] = useState("Pizzas");
           </label>
         </div>
 
-        {/* ---------- Menu / pizzas / basket ---------- */}
         <div className="order-layout">
-          {/* Left: categories + promo */}
           <aside>
             <nav className="sidebar-menu">
               <div className="sidebar-head">
@@ -211,20 +251,18 @@ const [activeCategory, setActiveCategory] = useState("Pizzas");
                 Menu
               </div>
               <ul className="sidebar-list">
-  {categories.map((cat) => (
-    <li key={cat} className="sidebar-item">
-      <button
-        type="button"
-        className={`category-btn ${
-          activeCategory === cat ? "is-active" : ""
-        }`}
-        onClick={() => setActiveCategory(cat)}
-      >
-        {cat}
-      </button>
-    </li>
-  ))}
-</ul>
+                {categories.map((cat) => (
+                  <li key={cat} className="sidebar-item">
+                    <button
+                      type="button"
+                      className={`category-btn ${activeCategory === cat ? "is-active" : ""}`}
+                      onClick={() => handleCategoryClick(cat)}
+                    >
+                      {cat}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </nav>
 
             <div className="promo">
@@ -240,24 +278,39 @@ const [activeCategory, setActiveCategory] = useState("Pizzas");
             </div>
           </aside>
 
-          {/* Middle: pizzas */}
+          {/* Middle: Products from Mock Data */}
           <main>
-            <div className="menu-head">
-              <h2 className="menu-title">Pizzas</h2>
-              <button type="button" className="sort-btn">
-                Sort by Pricing
-                <img className="icon-20" src={ForwardButton} alt="" />
-              </button>
+            <div className="menu-head" style={{ position: "relative" }}>
+              <h2 className="menu-title">Products</h2>
+              
+              <div style={{ position: "relative" }}>
+                <button 
+                  type="button" 
+                  className="sort-btn"
+                  onClick={() => setIsSortOpen(!isSortOpen)}
+                >
+                  {sortOrder === "asc" ? "Qiymət: Artan" : sortOrder === "desc" ? "Qiymət: Azalan" : sortOrder === "name" ? "Ada görə (A-Z)" : "Sort by Pricing"}
+                  <img className="icon-20" src={ForwardButton} alt="" />
+                </button>
+
+                {isSortOpen && (
+                  <div className="sort-popup-dropdown">
+                    <button type="button" onClick={() => handleSort("asc")}>Qiymətə görə (Artan)</button>
+                    <button type="button" onClick={() => handleSort("desc")}>Qiymətə görə (Azalan)</button>
+                    <button type="button" onClick={() => handleSort("name")}>Ada görə (A-Z)</button>
+                  </div>
+                )}
+              </div>
             </div>
 
-            {pizzas.map((pizza) => (
-              <article className="pizza-card" key={pizza.name}>
-                <h3 className="pizza-name">{pizza.name}</h3>
+            {productList.map((product) => (
+              <article className="pizza-card" key={product.id}>
+                <h3 className="pizza-name">{product.name}</h3>
                 <div className="pizza-spice">
                   {[0, 1, 2, 3, 4].map((i) => (
                     <img
                       key={i}
-                      className={i < 4 ? "spice-icon" : "spice-icon is-off"}
+                      className={i < Math.round(product.rating) ? "spice-icon" : "spice-icon is-off"}
                       src={ICONS.chili}
                       alt=""
                     />
@@ -266,29 +319,18 @@ const [activeCategory, setActiveCategory] = useState("Pizzas");
                 <p className="pizza-desc">{PIZZA_DESC}</p>
 
                 <div className="size-row">
-                  {sizes.map((size, i) => (
-                    <button
-                      type="button"
-                      key={size.label}
-                      className={i === 0 ? "size-btn is-selected" : "size-btn"}
-                    >
-                      <span>{size.label}</span>
-                      <span className="price-tag">{size.price}</span>
-                    </button>
-                  ))}
+                  <button type="button" className="size-btn is-selected">
+                    <span>Standard</span>
+                    <span className="price-tag">${product.price}</span>
+                  </button>
                 </div>
-                <button type="button" className="size-btn size-extra">
-                  <span>XL Large with Sauces</span>
-                  <span className="price-tag">£32.90</span>
-                </button>
 
-                <img className="pizza-img" src={Rectangle46} alt={pizza.name} />
-                {pizza.vegetarian && <img className="pizza-leaf" src={ICONS.leaf} alt="" />}
+                <img className="pizza-img" src={Rectangle46} alt={product.name} />
               </article>
             ))}
           </main>
 
-          {/* Right: open box + basket */}
+          {/* Right: basket */}
           <aside>
             <div className="open-box">
               <img className="icon-38" src={Clockk} alt="" />
@@ -345,12 +387,14 @@ const [activeCategory, setActiveCategory] = useState("Pizzas");
 
               <div className="basket-footer">
                 <div className="delivery-tabs">
-                  <div className="delivery-tab is-active">
+                  <div className={`delivery-tab ${orderMode === "delivery" ? "is-active" : ""}`}>
                     <img className="icon-30" src={DeliveryScooter} alt="" />
                     <span className="tab-title">Delivery</span>
-                    <span className="tab-sub">Starts at 17:50</span>
+                    <span className="tab-sub">
+                      {deliveryPostcode ? deliveryPostcode : "Starts at 17:50"}
+                    </span>
                   </div>
-                  <div className="delivery-tab">
+                  <div className={`delivery-tab ${orderMode === "collection" ? "is-active" : ""}`}>
                     <img className="icon-30" src={NewStore} alt="" />
                     <span className="tab-title">Collection</span>
                     <span className="tab-sub">Starts at 16:50</span>
@@ -391,11 +435,7 @@ const [activeCategory, setActiveCategory] = useState("Pizzas");
               <p className="info-line">
                 If you have allergies or other dietary
                 <br />
-                restrictions, please contact the restaurant. The
-                <br />
-                restaurant will provide food-specific
-                <br />
-                information upon request.
+                restrictions, please contact the restaurant.
               </p>
               <p className="info-line">
                 <strong>Phone number</strong>
@@ -440,7 +480,7 @@ const [activeCategory, setActiveCategory] = useState("Pizzas");
         </section>
       </div>
 
-      {/* ---------- Customer reviews (full-width grey band) ---------- */}
+      {/* ---------- Customer reviews ---------- */}
       <section className="reviews">
         <div className="container">
           <div className="reviews-head">
@@ -490,10 +530,10 @@ const [activeCategory, setActiveCategory] = useState("Pizzas");
       <div className="container">
         <h2 className="similar-title">Similar Restaurants</h2>
         <div className="similar-grid">
-          {similarRestaurants.map((r) => (
-            <article className="similar-card" key={r.name}>
+          {similarRestaurants.map((r, index) => (
+            <article className="similar-card" key={index}>
               <div className="similar-logo" style={{ backgroundColor: r.bg }}>
-                <img src={Mcdonalds } alt="" />
+                <img src={r.logo} alt="" />
               </div>
               <div className="similar-name">{r.name}</div>
             </article>
@@ -502,6 +542,4 @@ const [activeCategory, setActiveCategory] = useState("Pizzas");
       </div>
     </div>
   );
-};
-
-export default RestaurantPage;
+}
