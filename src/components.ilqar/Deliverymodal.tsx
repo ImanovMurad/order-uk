@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import "./DeliveryModal.css";
+import "../components.ilqar/Deliverymodal.css";
 import {
   checkPostcode,
   formatPostcode,
   modalImages,
   MINIMUM_DELIVERY,
-} from "../components.ilqar/Postcodemock ";
+} from "./Postcodemock";
 
 type Step = "choose" | "postcode";
 type PostcodeState = "idle" | "loading" | "error" | "invalid" | "success";
@@ -38,6 +38,7 @@ export default function DeliveryModal({ open, onClose, onDelivery, onCollect }: 
   const [state, setState] = useState<PostcodeState>("idle");
   const [submitted, setSubmitted] = useState("");
 
+  // Her açılışta sıfırla
   useEffect(() => {
     if (open) {
       setStep("choose");

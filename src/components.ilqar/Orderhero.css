@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+.oh {
+  --oh-orange: #ff8a00;
+  --oh-navy: #050a24;
+  --oh-text: #0b0b0b;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1528px;
+  margin: 0 auto;
+  padding: 50px 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--oh-text);
+}
+
+.oh *,
+.oh *::before,
+.oh *::after {
+  box-sizing: border-box;
+}
+
+/* ================= HERO ================= */
+
+.oh-hero {
+  position: relative;
+  height: 610px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ededed 0%, #ececec 45%, #dedede 100%);
+  /* görsel banner'dan taşabilsin diye overflow visible */
+  overflow: visible;
+}
+
+/* Çift görseli alanı – SVG / img buraya */
+.oh-hero__image {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56%;
+  height: calc(100% + 50px); /* üstten biraz taşma payı (fotoğraftaki gibi) */
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  pointer-events: none;
+  /* Alanı görmek için geçici olarak aç:
+  outline: 2px dashed rgba(0, 0, 0, 0.25); */
+}
+
+.oh-hero__image > img,
+.oh-hero__image > svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  object-position: left bottom;
+  border-bottom-left-radius: 16px;
+}
+
+.oh-hero__content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 46%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10px;
+  z-index: 1;
+}
+
+.oh-hero__title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 74px;
+  font-weight: 600;
+  letter-spacing: -3px;
+  line-height: 1.1;
+  color: var(--oh-navy);
+}
+
+/* "Order[.UK]ing" içindeki turuncu logo kutusu */
+.oh-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 62px;
+  margin: 0 2px 0 3px;
+  background: var(--oh-orange);
+  border-radius: 4px;
+  letter-spacing: 0;
+}
+
+.oh-logo__text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--oh-navy);
+  line-height: 1;
+}
+
+.oh-hero__pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0 0 -22px;
+  padding: 0 60px 0 120px;
+  height: 90px;
+  background: var(--oh-navy);
+  border-radius: 0 60px 60px 0;
+  font-size: 52px;
+  font-weight: 500;
+  letter-spacing: -2px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.oh-hero__pill-accent {
+  color: var(--oh-orange);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.oh-hero__subtitle {
+  margin: 26px 0 0 0;
+  align-self: center;
+  font-size: 25px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  color: var(--oh-text);
+}
+
+.oh-stores {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 28px;
+  align-self: center;
+}
+
+.oh-store {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 60px;
+  padding: 0 14px;
+  background: #000;
+  border: 1px solid #a6a6a6;
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.oh-store:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.oh-store__icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.oh-store__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.oh-store__text small {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.oh-store__text strong {
+  margin-top: 3px;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+/* ================= CARDS ================= */
+
+.oh-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 19px;
+  margin-top: 53px;
+}
+
+.oh-card {
+  position: relative;
+  height: 425px;
+  border-radius: 12px;
+  overflow: hidden;
+  color: #fff;
+  background: #0b1226; /* görsel yüklenene kadar */
+}
+
+.oh-card--rider {
+  background: #d9b93a;
+}
+
+/* Kartın tamamını kaplayan fotoğraf (şef / kurye) */
+.oh-card__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Beyaz üst etiket */
+.oh-card__tab {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 288px;
+  height: 64px;
+  background: #fff;
+  color: var(--oh-text);
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 0 0 12px 12px;
+  z-index: 2;
+}
+
+.oh-card__body {
+  position: absolute;
+  left: 70px;
+  bottom: 39px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.oh-card__kicker {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--oh-orange);
+}
+
+.oh-card__title {
+  margin: 0 0 26px;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+.oh-btn {
+  width: 205px;
+  height: 52px;
+  border: 0;
+  border-radius: 30px;
+  background: var(--oh-orange);
+  color: #fff;
+  font-family: inherit;
+  font-size: 19px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.oh-btn:hover {
+  background: #e67c00;
+  transform: translateY(-1px);
+}
+
+.oh-btn:active {
+  transform: translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+  .oh {
+    padding: 30px 24px;
+  }
+
+  .oh-hero__title {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .oh-logo {
+    width: 28px;
+    height: 44px;
+  }
+
+  .oh-logo__text {
+    font-size: 16px;
+  }
+
+  .oh-hero__pill {
+    height: 68px;
+    font-size: 38px;
+    padding: 0 40px 0 80px;
+  }
+
+  .oh-hero__subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .oh-hero {
+    height: auto;
+    padding: 40px 20px 30px;
+  }
+
+  .oh-hero__image {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    order: 2;
+  }
+
+  .oh-hero__content {
+    position: relative;
+    width: 100%;
+    align-items: center;
+  }
+
+  .oh-hero__title {
+    font-size: 36px;
+  }
+
+  .oh-hero__pill {
+    margin-left: 0;
+    padding: 0 30px;
+    height: 56px;
+    font-size: 26px;
+    border-radius: 40px;
+  }
+
+  .oh-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .oh-card__tab,
+  .oh-card__body {
+    left: 24px;
+  }
+
+  .oh-card__title {
+    font-size: 34px;
+  }
+}

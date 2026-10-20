@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import "./OrderingPage.css";
+import "../components.ilqar/OrderingPage.css";
 
-// Doğru import yolu (eyni qovluqdadırlar)
 import { products as mockProducts, type Product } from "./Products";
-import DeliveryModal from "../components.ilqar/Deliverymodal";
+import MealDealModal, { type DealSelection } from "./Mealdealmodal";
+import { mealDeal } from "./Mealdealmock";
+import DeliveryModal from "./Deliverymodal";
 
 import Rectangle44 from "../assets.ilqar/Rectangle 44.svg";
 import Order from "../assets.ilqar/Order Completed.svg";
@@ -35,7 +36,7 @@ const ICONS = {
   reviewClock: "/icons/review-clock.svg",
   plus: "/icons/plus.svg",
 };
-// 
+
 const categories = [
   "Pizzas",
   "Garlic Bread",
@@ -53,11 +54,21 @@ const categories = [
 const PIZZA_DESC =
   "1 McChicken™️, 1 Big Mac™️, 1 Royal\nCheeseburger, 3 medium sized French Fries ,\n3 cold drinks";
 
-const basketItems = [
-  { qty: "1x", price: "£27.90", name: '12" Vegitarian Pizza', desc: "No Mushrooms + green peppers" },
-  { qty: "1x", price: "£17.90", name: '17" Tandoori Pizza', desc: "No Mushrooms + green peppers" },
-  { qty: "2x", price: "£4.90", name: "Coke Coca Cola", desc: "" },
-];
+type BasketItem = {
+  id: string;
+  qty: number;
+  unitPrice: number; // £
+  name: string;
+  desc: string;
+};
+
+const initialBasket: BasketItem[] = [];
+
+// Mock değerler
+const DISCOUNT = 3.0;
+const DELIVERY_FEE = 2.5;
+
+const money = (n: number) => `£${n.toFixed(2)}`;
 
 const deliveryHours: [string, string][] = [
   ["Monday", "12:00 AM–3:00 AM, 8:00 AM–3:00 AM"],
@@ -118,17 +129,47 @@ export default function OrderingPage() {
   const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
   const [sortOrder, setSortOrder] = useState<string>("default");
 
-  // Delivery / postcode modal
-  const [isDeliveryModalOpen, setIsDeliveryModalOpen] = useState<boolean>(false);
+  // Meal deal modal + basket
+  const [isMealDealOpen, setIsMealDealOpen] = useState<boolean>(false);
+  const [basket, setBasket] = useState<BasketItem[]>(initialBasket);
+
+  // Checkout -> Order Now / postcode modal
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState<boolean>(false);
   const [orderMode, setOrderMode] = useState<"delivery" | "collection">("delivery");
   const [deliveryPostcode, setDeliveryPostcode] = useState<string | null>(null);
 
   const handleCategoryClick = (cat: string) => {
     setActiveCategory(cat);
     if (cat === "Pizzas") {
-      setIsDeliveryModalOpen(true);
+      setIsMealDealOpen(true);
     }
   };
+
+  const handleMealDealComplete = (selections: DealSelection[]) => {
+    const stamp = Date.now();
+    setBasket((prev) => [
+      ...prev,
+      ...selections.map(({ item, qty, toppings, note }, i) => ({
+        id: `${stamp}-${i}`,
+        qty,
+        unitPrice: item.price,
+        name: item.name,
+        desc:
+          [toppings.join(", "), note && `Note: ${note}`].filter(Boolean).join(" · ") ||
+          mealDeal.name,
+      })),
+    ]);
+  };
+
+  const handleRemoveFromBasket = (id: string) => {
+    setBasket((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  // Basket toplamları
+  const subTotal = basket.reduce((sum, item) => sum + item.unitPrice * item.qty, 0);
+  const discount = Math.min(DISCOUNT, subTotal);
+  const deliveryFee = subTotal > 0 && orderMode === "delivery" ? DELIVERY_FEE : 0;
+  const totalToPay = subTotal - discount + deliveryFee;
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts/1')
@@ -181,9 +222,17 @@ export default function OrderingPage() {
 
   return (
     <div className="restaurant-page">
+      <MealDealModal
+        open={isMealDealOpen}
+        onClose={() => setIsMealDealOpen(false)}
+        onComplete={handleMealDealComplete}
+        heroImage={Rectangle46}
+        pizzaImage={Rectangle46}
+      />
+
       <DeliveryModal
-        open={isDeliveryModalOpen}
-        onClose={() => setIsDeliveryModalOpen(false)}
+        open={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
         onDelivery={(postcode) => {
           setOrderMode("delivery");
           setDeliveryPostcode(postcode);
@@ -278,7 +327,6 @@ export default function OrderingPage() {
             </div>
           </aside>
 
-          {/* Middle: Products from Mock Data */}
           <main>
             <div className="menu-head" style={{ position: "relative" }}>
               <h2 className="menu-title">Products</h2>
@@ -343,37 +391,49 @@ export default function OrderingPage() {
                 My Basket
               </div>
 
-              {basketItems.map((item, i) => (
-                <div className="basket-item" key={i}>
-                  <span className="qty">{item.qty}</span>
+              {basket.length === 0 && (
+                <p style={{ margin: "16px 20px", fontSize: "14px", opacity: 0.6 }}>
+                  Your basket is empty. Click “Pizzas” to start your order.
+                </p>
+              )}
+
+              {basket.map((item) => (
+                <div className="basket-item" key={item.id}>
+                  <span className="qty">{item.qty}x</span>
                   <div className="basket-item-text">
-                    <div className="basket-price">{item.price}</div>
+                    <div className="basket-price">{money(item.unitPrice * item.qty)}</div>
                     <div className="basket-name">{item.name}</div>
                     {item.desc && <div className="basket-desc">{item.desc}</div>}
                   </div>
-                  <img className="icon-19 basket-trash" src={Remove} alt="" />
+                  <img
+                    className="icon-19 basket-trash"
+                    src={Remove}
+                    alt="Remove"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleRemoveFromBasket(item.id)}
+                  />
                 </div>
               ))}
 
               <div className="basket-summary">
                 <div className="summary-row">
                   <span className="summary-label">Sub Total:</span>
-                  <span className="summary-value">£127.90</span>
+                  <span className="summary-value">{money(subTotal)}</span>
                 </div>
                 <div className="summary-row">
                   <span className="summary-label">Discounts:</span>
-                  <span className="summary-value">-3.00</span>
+                  <span className="summary-value">-{discount.toFixed(2)}</span>
                 </div>
                 <div className="summary-row">
                   <span className="summary-label">Delivery Fee:</span>
-                  <span className="summary-value">2.50</span>
+                  <span className="summary-value">{deliveryFee.toFixed(2)}</span>
                 </div>
               </div>
 
               <div className="basket-controls">
                 <div className="total-box">
                   <span className="total-label">Total to pay</span>
-                  <span className="total-amount">£127.90</span>
+                  <span className="total-amount">{money(totalToPay)}</span>
                 </div>
                 <button type="button" className="pill-btn">
                   Choose your free item..
@@ -390,9 +450,7 @@ export default function OrderingPage() {
                   <div className={`delivery-tab ${orderMode === "delivery" ? "is-active" : ""}`}>
                     <img className="icon-30" src={DeliveryScooter} alt="" />
                     <span className="tab-title">Delivery</span>
-                    <span className="tab-sub">
-                      {deliveryPostcode ? deliveryPostcode : "Starts at 17:50"}
-                    </span>
+                    <span className="tab-sub">{deliveryPostcode ?? "Starts at 17:50"}</span>
                   </div>
                   <div className={`delivery-tab ${orderMode === "collection" ? "is-active" : ""}`}>
                     <img className="icon-30" src={NewStore} alt="" />
@@ -400,7 +458,7 @@ export default function OrderingPage() {
                     <span className="tab-sub">Starts at 16:50</span>
                   </div>
                 </div>
-                <button type="button" className="checkout-btn">
+                <button type="button" className="checkout-btn" onClick={() => setIsCheckoutOpen(true)}>
                   <img className="icon-24" src={Checkout} alt="" />
                   Checkout!
                 </button>
@@ -409,7 +467,6 @@ export default function OrderingPage() {
           </aside>
         </div>
 
-        {/* ---------- Delivery / contact / operational times ---------- */}
         <section className="info-card">
           <div className="info-left">
             <div>
@@ -461,7 +518,6 @@ export default function OrderingPage() {
           </div>
         </section>
 
-        {/* ---------- Map ---------- */}
         <section className="map-card">
           <img className="map-img" src={Rectangle52} alt="Map" />
           <div className="map-info">
@@ -480,7 +536,6 @@ export default function OrderingPage() {
         </section>
       </div>
 
-      {/* ---------- Customer reviews ---------- */}
       <section className="reviews">
         <div className="container">
           <div className="reviews-head">
@@ -526,7 +581,6 @@ export default function OrderingPage() {
         </div>
       </section>
 
-      {/* ---------- Similar restaurants ---------- */}
       <div className="container">
         <h2 className="similar-title">Similar Restaurants</h2>
         <div className="similar-grid">

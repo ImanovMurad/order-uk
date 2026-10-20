@@ -11,6 +11,13 @@ import Trackorder from "./pages/Trackorder";
 import KnowMoreSection from './components.ilqar/Main'
 import Footer from './components.ilqar/Footer';
 import RestaurantPage from "./components.ilqar/OrderingPage"
+<<<<<<< HEAD
+=======
+import OrderHero from "./components.ilqar/Orderhero "
+// import Browsemenuilqar from './components.ilqar/Browsemenuilqar'
+// function PlaceholderPage({ title }: { title: string }) {
+  // return <div style={{ padding: 40 }}>{title}</div>;
+>>>>>>> 1cba06b9f94f61a158364f2a95c8da7ed93a8441
   
 function App() {
   return (
@@ -30,6 +37,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     <div>
+      <OrderHero/>
       <KnowMoreSection/>
       <Footer />
     </div>
