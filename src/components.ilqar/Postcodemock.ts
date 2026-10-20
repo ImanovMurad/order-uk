@@ -1,3 +1,4 @@
+
 export type PostcodeResult =
   | { status: "ok"; postcode: string }
   | { status: "not-delivered"; postcode: string }
@@ -13,11 +14,12 @@ export const deliverablePostcodes: string[] = [
 ];
 
 
-const UK_POSTCODE_REGEX = /^[A-Z]{1,2}\d[A-Z\d]?\d[A-Z]{2}$/;
+const UK_POSTCODE_REGEX = /^[A-Z]{1,2}\d[A-Z\d]?\d[A-Z\d]{2}$/;
 
 export const normalizePostcode = (value: string): string =>
   value.replace(/\s+/g, "").toUpperCase();
 
+// "EN492F" -> "EN4 92F"
 export const formatPostcode = (value: string): string => {
   const n = normalizePostcode(value);
   return n.length > 3 ? `${n.slice(0, -3)} ${n.slice(-3)}` : n;
@@ -49,4 +51,4 @@ export const modalImages: {
   success: null,
 };
 
-export const MINIMUM_DELIVERY = 10; 
+export const MINIMUM_DELIVERY = 10; // £

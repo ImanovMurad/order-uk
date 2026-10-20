@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  z-index: 1000;
+  z-index: 1100;
   animation: dm-fade 0.18s ease-out;
 }
 
@@ -207,6 +207,7 @@
 }
 .dm-link--small { font-size: 15px; }
 
+/* ---------- Order Now step ---------- */
 .dm-modal--choose { max-width: 760px; }
 
 .dm-choose {
