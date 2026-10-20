@@ -2,7 +2,6 @@
 
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Navbar from "./companents/Navbar";
 import Home from "./pages/Home";
 import Restaurants from "./pages/Restaurants";
@@ -12,9 +11,6 @@ import Trackorder from "./pages/Trackorder";
 import KnowMoreSection from './components.ilqar/Main'
 import Footer from './components.ilqar/Footer';
 import RestaurantPage from "./components.ilqar/OrderingPage"
-// import Browsemenuilqar from './components.ilqar/Browsemenuilqar'
-// function PlaceholderPage({ title }: { title: string }) {
-  // return <div style={{ padding: 40 }}>{title}</div>;
   
 function App() {
   return (
@@ -36,7 +32,6 @@ function App() {
     <div>
       <KnowMoreSection/>
       <Footer />
-      {/* <Orderingpage/> */}
     </div>
     </>
   );

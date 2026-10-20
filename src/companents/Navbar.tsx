@@ -22,7 +22,7 @@ function Navbar()  {
 
     
         <div className="cart-info">
-          <div className="cart-icon">🛍️</div>
+          <div className="cart-icon"><button>🛍️</button></div>
           <div className="cart-items">23 Items</div>
           <div className="cart-price">GBP 79.89</div>
           <button className="cart-button">↓</button>
