@@ -2,7 +2,6 @@
 
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Navbar from "./companents/Navbar";
 import Home from "./pages/Home";
 import Restaurants from "./pages/Restaurants";
@@ -12,10 +11,13 @@ import Trackorder from "./pages/Trackorder";
 import KnowMoreSection from './components.ilqar/Main'
 import Footer from './components.ilqar/Footer';
 import RestaurantPage from "./components.ilqar/OrderingPage"
+<<<<<<< HEAD
+=======
 import OrderHero from "./components.ilqar/Orderhero "
 // import Browsemenuilqar from './components.ilqar/Browsemenuilqar'
 // function PlaceholderPage({ title }: { title: string }) {
   // return <div style={{ padding: 40 }}>{title}</div>;
+>>>>>>> 1cba06b9f94f61a158364f2a95c8da7ed93a8441
   
 function App() {
   return (
@@ -38,7 +40,6 @@ function App() {
       <OrderHero/>
       <KnowMoreSection/>
       <Footer />
-      {/* <Orderingpage/> */}
     </div>
     </>
   );

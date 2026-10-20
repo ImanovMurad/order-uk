@@ -1,187 +1,14 @@
 import React, { useState } from "react";
-import food from '../assets/Rectangle 46 (2).jpg'
-import food1 from '../assets/Rectangle 46 (4).jpg'
-import drink from '../assets/Rectangle 46 (5).jpg'
+import { categories, products } from "./productsdata";
 
-type Product = {
-  id: number;
-  name: string;
-  category: string;
-  price: number;
-  image: string;
-  isOffer: boolean;
-};
 
-const categories = [
-  "Offers",
-  "Burgers",
-  "Fries",
-  "Snacks",
-  "Salads",
-  "Cold drinks",
-  "Happy Meal",
-  "Desserts",
-  "Hot drinks",
-  "Sauces",
-  "Orbit®",
-];
-
-const products: Product[] = [
-  {
-    id: 1,
-    name: "Royal Cheese Burger with extra Fries",
-    category: "Burgers",
-    price: 23.1,
-    image:food,
-    isOffer: true,
-  },
-  {
-    id: 2,
-    name: "The classics for 3",
-    category: "Burgers",
-    price: 23.1,
-    image:food,
-    isOffer: true,
-  },
-   {
-    id: 3,
-    name: "The classics for 3",
-    category: "Burgers",
-    price: 23.1,
-    image:food,
-    isOffer: false,
-  },
-   {
-    id: 4,
-    name: "The classics for 3",
-    category: "Burgers",
-    price: 23.1,
-    image:food,
-    isOffer: false,
-  },
-  {
-    id: 5,
-    name: "The classics for 3",
-    category: "Burgers",
-    price: 23.1,
-    image:food,
-    isOffer: false,
-  },
-   {
-    id: 6,
-    name: "The classics for 3",
-    category: "Burgers",
-    price: 23.1,
-    image:food,
-    isOffer: false,
-  },
-
-  {
-    id: 7,
-    name: "Royal Cheese Burger with extra Fries",
-    category: "Fries",
-    price: 8.5,
-    image:food1,
-    isOffer: true,
-  },
-  {
-    id: 8,
-    name: "The classics for 3",
-    category: "Fries",
-    price: 10.5,
-    image:food1,
-    isOffer: false,
-  },
-   {
-    id: 9,
-    name: "The classics for 3",
-    category: "Fries",
-    price: 10.5,
-    image:food1,
-    isOffer: false,
-  },
-   {
-    id: 10,
-    name: "The classics for 3",
-    category: "Fries",
-    price: 10.5,
-    image:food1,
-    isOffer: false,
-  },
-   {
-    id: 11,
-    name: "The classics for 3",
-    category: "Fries",
-    price: 10.5,
-    image:food1,
-    isOffer: false,
-  },
-   {
-    id: 12,
-    name: "The classics for 3",
-    category: "Fries",
-    price: 10.5,
-    image:food1,
-    isOffer: false,
-  },
- 
-  {
-    id: 13,
-     name: "Royal Cheese Burger with extra Fries",
-    category: "Cold drinks",
-    price: 5.5,
-    image:drink,
-    isOffer: true,
-  }, 
-  {
-    id: 14,
-     name: "The classics for 3",
-    category: "Cold drinks",
-    price: 5.5,
-    image:drink,
-    isOffer: true,
-  }, 
-  {
-    id: 14,
-     name: "The classics for 3",
-    category: "Cold drinks",
-    price: 5.5,
-    image:drink,
-    isOffer: false,
-  }, 
-  {
-    id: 14,
-     name: "The classics for 3",
-    category: "Cold drinks",
-    price: 5.5,
-    image:drink,
-    isOffer: false,
-  }, 
-  {
-    id: 14,
-     name: "The classics for 3",
-    category: "Cold drinks",
-    price: 5.5,
-    image:drink,
-    isOffer: false,
-  }, 
-    {
-    id: 15,
-     name: "The classics for 3",
-    category: "Cold drinks",
-    price: 5.5,
-    image:drink,
-    isOffer: false,
-  }, 
-  
-  
-
-];
 
 const Products: React.FC = () => {
-  const [activeCategory, setActiveCategory] =
-    useState("Offers");
 
+  const [activeCategory, setActiveCategory] =
+
+    useState("Offers");
+    
   const [ ] = useState<number[]>([]);
 
   const filteredProducts =
@@ -259,6 +86,7 @@ return (
                   <button
                     className="add-button"
                     onClick={() =>  (product.id)}
+                   
                     aria-label={`Add ${product.name} to cart`}
                   >
                     +
