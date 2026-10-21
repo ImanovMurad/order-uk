@@ -8,10 +8,10 @@ import Restaurants from "./pages/Restaurants";
 import Browsemenu from "./pages/Browsemenu";
 import Specialoffers from "./pages/Specialoffers";
 import Trackorder from "./pages/Trackorder";
-import KnowMoreSection from './components.ilqar/Main'
+// import KnowMoreSection from './components.ilqar/Main'
 import Footer from './components.ilqar/Footer';
 import RestaurantPage from "./components.ilqar/OrderingPage"
-import OrderHero from "./components.ilqar/Orderhero "
+// import OrderHero from "./components.ilqar/Orderhero "
 function App() {
   return (
   <>  <BrowserRouter>
@@ -30,8 +30,8 @@ function App() {
       </Routes>
     </BrowserRouter>
     <div>
-      <OrderHero/>
-      <KnowMoreSection/>
+      {/* <OrderHero/> */}
+      {/* <KnowMoreSection/> */}
       <Footer />
     </div>
     </>
