@@ -50,14 +50,14 @@ function Navbar()  {
         </nav>
 
        
-        <div className="auth-buttons">
+        {/* <div className="auth-buttons">
           <button className="login-btn">
             <span>Login</span>
           </button>
           <button className="login-btn">
             <span>Signup</span>
           </button>
-        </div>
+        </div> */}
       </div>
     </header>
   );
