@@ -7,10 +7,10 @@ const Rectangle52: React.FC = () => {
     <div className="rectangle52-container">
 
     <div className="restaurant-map">
-      {/* Xəritə */}
+   
      <img src={map}/>
 
-      {/* Sol məlumat kartı */}
+    
       <div className="rectangle52-info">
         <h2>McDonald’s</h2>
 
@@ -39,7 +39,7 @@ const Rectangle52: React.FC = () => {
         </div>
       </div>
 
-      {/* Xəritə üzərində restoran işarəsi */}
+     
       <div className="map-location">
         <div className="location-label">
           <strong>McDonald’s</strong>

@@ -47,7 +47,7 @@ function Rectangle2()  {
           <p>
             Order<span>▮</span>
           </p>
-
+          
           <span>now</span>
         </div>
 

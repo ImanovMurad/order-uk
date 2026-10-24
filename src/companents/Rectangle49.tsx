@@ -75,7 +75,7 @@ const Rectangle49: React.FC = () => {
         </div>
       </div>
 
-      {/* Operational Times */}
+     
       <div className="info-section operational-section">
         <h2>
           <span className="rectangle49-icon">◷</span>

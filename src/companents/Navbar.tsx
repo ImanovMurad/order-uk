@@ -35,6 +35,7 @@ function Navbar()  {
           <img src={logo} alt="Sayt Loqosu" className="logo-img" />
         </div>
 
+
         <nav className="nav">
 
           <Link to="/">Home</Link>
