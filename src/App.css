@@ -357,9 +357,9 @@ background-color: #FBFBFB;
 .hero-woman img {
   width: 805px;
   height: 537px;
-  /* object-fit: contain; */
-  /* object-position: bottom center; */
-  /* display: block; */
+   object-fit: contain; 
+   object-position: bottom center; 
+  display: block;
 }
 
 
