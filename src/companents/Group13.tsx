@@ -8,9 +8,9 @@ function Group13  () {
         
           <div className="group13-nav">
 
-                    <p>
+                    <b>
                         Up to -40% 🎊 Order.uk exclusive deals
-                    </p>
+                    </b>
 
                     <nav className="nav-1">
                         <a href="#">Vegan</a>

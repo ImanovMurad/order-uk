@@ -1,8 +1,11 @@
+
 import logo from '../assets/LOGO 1.jpg';
 import {Link} from "react-router-dom"
 
 
 function Navbar()  {
+
+  
   return (
     <header className="navbar-wrapper">
       <div className="top-bar">
@@ -47,6 +50,8 @@ function Navbar()  {
           <Link to="/Restaurants">Restaurants</Link>
 
           <Link to="/Trackorder">Track Order</Link>
+
+
 
         </nav>
 

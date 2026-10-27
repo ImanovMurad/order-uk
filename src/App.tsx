@@ -10,7 +10,23 @@ import Specialoffers from "./pages/Specialoffers";
 import Trackorder from "./pages/Trackorder";
 import Footer from './components.ilqar/Footer';
 import RestaurantPage from "./components.ilqar/OrderingPage"
+import { useState, useEffect } from "react";
+import Loader from "./companents/Loader";
 function App() {
+  const [loading, setLoading] = useState(true);
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
   return (
     
     
