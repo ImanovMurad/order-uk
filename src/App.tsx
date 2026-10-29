@@ -12,6 +12,11 @@ import Footer from './components.ilqar/Footer';
 import RestaurantPage from "./components.ilqar/OrderingPage"
 import { useState, useEffect } from "react";
 import Loader from "./companents/Loader";
+import NotFound from "./pages/Notfount";
+
+
+
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -36,10 +41,15 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Browsemenu" element={<Browsemenu />} />
+        {/* <Route path="/Browsemenu" element={<Browsemenu />} />
+          <Route path="/Specialoffers" element={<Specialoffers />} /> */}
+          <Route path="/Browsemenu" element={<NotFound />} />
+          <Route path="/Specialoffers" element={<NotFound />} />
         <Route path="/Restaurants" element={<Restaurants />} />
-        <Route path="/Specialoffers" element={<Specialoffers />} />
         <Route path="/Trackorder" element={<RestaurantPage />} />
+           <Route path="*" element={<NotFound />} />
+       
+     
         
        
 
