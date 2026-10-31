@@ -2,7 +2,7 @@
 import untitled from '../assets/Untitled-1_1-removebg-preview.png';
 import untitled1 from '../assets/Untitled-2 1.jpg'
 
-function Rectangle2()  {
+function Hero()  {
   return (
     <div className="rectangle2">
       <div className="hero-orange-bg"></div>
@@ -21,16 +21,17 @@ function Rectangle2()  {
           Enter a postcode to see what we deliver
         </p>
 
-        <div className="search-box">
-          <input
-            type="text"
-            placeholder="e.g. EC4R 3TE"
-          />
+        <div className="search-container">
+      <input
+        type="text"
+        placeholder="e.g. EC4R 3TE"
+        className="search-input"
+      />
 
-          <button>
-            Search
-          </button>
-        </div>
+      <button className="search-button">
+        Search
+      </button>
+    </div>
       </div>
       <div className="hero-woman">
         <img
@@ -64,7 +65,7 @@ function Rectangle2()  {
           <span>now</span>
         </div>
         <p>
-          Order Accepted! &nbsp; ☑️
+          Order Accepted! 
         </p>
 
         <span>Your order will be delivered shortly</span>
@@ -78,7 +79,7 @@ function Rectangle2()  {
           <span>now</span>
         </div>
         <p>
-          Your rider's nearby 🎉
+          Your rider's nearby 
         </p>
         <span>They're almost there – get ready!</span>
       </div>
@@ -90,4 +91,4 @@ function Rectangle2()  {
   );
 };
 
-export default Rectangle2;
+export default Hero;

@@ -7,7 +7,7 @@ import food4 from "../assets/Group 20.jpg"
 import food5 from "../assets/Group 21.jpg"
 
 
-function Group15  () {
+function Popularrestaurants  () {
   return (
     <div className="Group15">
         
@@ -37,4 +37,4 @@ function Group15  () {
   );
 };
 
-export default Group15 ;
+export default Popularrestaurants ;

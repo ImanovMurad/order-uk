@@ -1,17 +1,17 @@
-import Rectangle2 from "../companents/Rectangle2";
-import Group13 from "../companents/Group13";
-import Group14 from "../companents/Group14";
-import Group15 from "../companents/Group15";
+import Hero from "../companents/Hero";
+import Offers from "../companents/Offers";
+import Popularcategories from "../companents/Popularcategories";
+import Popularrestaurants from "../companents/Popularrestaurants";
 import OrderHero from "../components.ilqar/Orderhero "
 import KnowMoreSection from "../components.ilqar/Main"
 
 function Home() {
   return (
     <div>
-      <Rectangle2 />
-      <Group13 />
-      <Group14/>
-      <Group15/>
+      <Hero />
+      <Offers />
+      <Popularcategories/>
+      <Popularrestaurants/>
       <OrderHero/>
       <KnowMoreSection/>
 

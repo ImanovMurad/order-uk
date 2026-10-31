@@ -2,7 +2,7 @@
 import food from '../assets/Group 10.jpg'
 import food1 from '../assets/Group 11.jpg'
 
-function Group13  () {
+function Offers  () {
   return (
     <div className="group13">
         
@@ -32,4 +32,4 @@ function Group13  () {
   );
 };
 
-export default Group13 ;
+export default Offers ;

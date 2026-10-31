@@ -1,6 +1,6 @@
 
 import food from '../assets/Rectangle 44.jpg'
-const Group23: React.FC = () => {
+const Restaurantheader: React.FC = () => {
   return (
     <div className="restaurant-page">
       <div className="restaurant-banner">
@@ -56,4 +56,4 @@ const Group23: React.FC = () => {
   );
 };
 
-export default Group23;
+export default Restaurantheader;

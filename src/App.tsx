@@ -12,7 +12,7 @@ import Footer from './components.ilqar/Footer';
 import RestaurantPage from "./components.ilqar/OrderingPage"
 import { useState, useEffect } from "react";
 import Loader from "./companents/Loader";
-import NotFound from "./pages/Notfount";
+import NotFound from "./pages/NotFount";
 
 
 

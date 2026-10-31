@@ -2,7 +2,7 @@
 import React from "react";
 import map from '../assets/Rectangle 52 (1).jpg'
 
-const Rectangle52: React.FC = () => {
+const Map: React.FC = () => {
   return (
     <div className="rectangle52-container">
 
@@ -60,4 +60,4 @@ const Rectangle52: React.FC = () => {
   );
 };
 
-export default Rectangle52;
+export default Map;

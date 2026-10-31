@@ -9,12 +9,12 @@ import food5 from "../assets/Rectangle 23.jpg"
 
 
 
-function Group14  () {
+function  Popularcategories () {
   return (
     <div className="Group14">
         
                     <h1>
-                        Order.uk Popular Categories 🤩
+                        Order.uk Popular Categories 
                     </h1>
 
           <div className="Group14-food">
@@ -67,4 +67,4 @@ function Group14  () {
   );
 };
 
-export default Group14 ;
+export default Popularcategories ;

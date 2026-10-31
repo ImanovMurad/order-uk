@@ -22,7 +22,7 @@ const operationalTimes = [
   { day: "Sunday", time: "8:00 AM–3:00 AM" },
 ];
 
-const Rectangle49: React.FC = () => {
+const Restaurantinfo: React.FC = () => {
   return (
     <div className="rectangle49-info">
       {/* Delivery information */}
@@ -94,4 +94,4 @@ const Rectangle49: React.FC = () => {
   );
 };
 
-export default Rectangle49;
+export default Restaurantinfo;

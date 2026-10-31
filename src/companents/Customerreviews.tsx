@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { reviews,} from "./productsdata";
 
-export default function Rectangle61() {
+export default function Customerreviews() {
   const [index, setIndex] = useState(0);
 
   const next = () => {
